@@ -14,7 +14,7 @@ const Difficulty = ({ difficulty, isLightTheme }) => {
       <h1
         className={`${
           difficulty === "easy"
-            ? "text-green-200"
+            ? "text-green-100"
             : difficulty === "medium"
             ? "text-yellow-100"
             : "text-red-200"
