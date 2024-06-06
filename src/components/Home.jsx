@@ -4,12 +4,14 @@ import categories from "../constants/data";
 import { enqueueSnackbar, SnackbarProvider } from "notistack";
 import url from "../constants/url";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Home = ({ setQuizData, isLightTheme, setIsLightTheme }) => {
-  const [num, setNum] = useState(null);
-  const [category, setCategory] = useState(null);
-  const [difficulty, setDifficulty] = useState(null);
-  const [type, setType] = useState(null);
+  const [num, setNum] = useState("");
+  const [category, setCategory] = useState("");
+  const [difficulty, setDifficulty] = useState("");
+  const [type, setType] = useState("");
+  const navigate = useNavigate();
 
   const handleQuestionsChange = (event) => {
     const temp = event.target.value;
@@ -60,7 +62,9 @@ const Home = ({ setQuizData, isLightTheme, setIsLightTheme }) => {
     await axios
       .get(url + one + two + three + four)
       .then((res) => {
-        console.log(res.data);
+        console.log(res.data.results);
+        setQuizData(res.data.results);
+        navigate("/quiz");
       })
       .catch((err) => {
         console.log(err);
@@ -68,7 +72,9 @@ const Home = ({ setQuizData, isLightTheme, setIsLightTheme }) => {
   };
 
   return (
-    <div>
+    <div
+      className={`${isLightTheme ? "bg-[#F4F6F5]" : "bg-[#323E48]"} h-screen`}
+    >
       <SnackbarProvider />
       <Navbar isLightTheme={isLightTheme} setIsLightTheme={setIsLightTheme} />
       <div className="h-screen flex items-center justify-center">
