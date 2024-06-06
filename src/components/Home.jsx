@@ -76,7 +76,11 @@ const Home = ({ setQuizData, isLightTheme, setIsLightTheme }) => {
       className={`${isLightTheme ? "bg-[#F4F6F5]" : "bg-[#323E48]"} h-screen`}
     >
       <SnackbarProvider />
-      <Navbar isLightTheme={isLightTheme} setIsLightTheme={setIsLightTheme} />
+      <Navbar
+        isLightTheme={isLightTheme}
+        setIsLightTheme={setIsLightTheme}
+        isHome={true}
+      />
       <div className="h-screen flex items-center justify-center">
         <div
           className={`${

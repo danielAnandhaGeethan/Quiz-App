@@ -38,7 +38,7 @@ const Difficulty = ({ difficulty, isLightTheme }) => {
           difficulty === "easy"
             ? "text-green-300"
             : difficulty === "medium"
-            ? "text-yellow-300"
+            ? "text-yellow-200"
             : "text-red-300"
         } text-sm`}
       >

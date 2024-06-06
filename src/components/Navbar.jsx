@@ -3,7 +3,7 @@ import logo from "../assets/logo.png";
 import dark from "../assets/dark.png";
 import light from "../assets/light.png";
 
-const Navbar = ({ isLightTheme, setIsLightTheme }) => {
+const Navbar = ({ isLightTheme, setIsLightTheme, isHome }) => {
   return (
     <div className="h-[72px] flex items-center justify-center fixed w-full">
       <img src={logo} alt="Qwiz" className="h-[40px] cursor-pointer" />
