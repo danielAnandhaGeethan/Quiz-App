@@ -5,7 +5,7 @@ import { enqueueSnackbar, SnackbarProvider } from "notistack";
 import url from "../constants/url";
 import axios from "axios";
 
-const Home = () => {
+const Home = ({ setQuizData, isLightTheme, setIsLightTheme }) => {
   const [num, setNum] = useState(null);
   const [category, setCategory] = useState(null);
   const [difficulty, setDifficulty] = useState(null);
@@ -70,11 +70,26 @@ const Home = () => {
   return (
     <div>
       <SnackbarProvider />
-      <Navbar />
+      <Navbar isLightTheme={isLightTheme} setIsLightTheme={setIsLightTheme} />
       <div className="h-screen flex items-center justify-center">
-        <div className="bg-white p-8 rounded-xl shadow-lg flex flex-col gap-4">
+        <div
+          className={`${
+            isLightTheme ? "bg-white" : "bg-white/10"
+          } p-8 rounded-xl shadow-lg flex flex-col gap-4`}
+        >
+          <div className="text-center">
+            <h1
+              className={`${
+                isLightTheme ? "text-[#2A333C]" : "text-white/80"
+              } font-semibold text-lg`}
+            >
+              Fill Parameters and Generate Quiz
+            </h1>
+          </div>
           <div>
-            <h1>Number of Questions</h1>
+            <h1 className={`${isLightTheme ? "text-black" : "text-white/80"}`}>
+              Number of Questions
+            </h1>
             <input
               type="text"
               className="bg-gray-100 border border-gray-300 rounded-lg w-40 text-center focus:outline-none"
@@ -83,7 +98,9 @@ const Home = () => {
             />
           </div>
           <div>
-            <h1>Category</h1>
+            <h1 className={`${isLightTheme ? "text-black" : "text-white/80"}`}>
+              Category
+            </h1>
             <select
               onChange={handleCategoryChange}
               className="block bg-gray-100 border border-gray-300 rounded-lg py-0.5 w-80 focus:outline-none"
@@ -100,7 +117,9 @@ const Home = () => {
             </select>
           </div>
           <div>
-            <h1>Difficulty</h1>
+            <h1 className={`${isLightTheme ? "text-black" : "text-white/80"}`}>
+              Difficulty
+            </h1>
             <select
               onChange={handleDifficultyChange}
               className="block bg-gray-100 border border-gray-300 rounded-lg py-0.5 w-40 focus:outline-none"
@@ -120,7 +139,9 @@ const Home = () => {
             </select>
           </div>
           <div>
-            <h1>Type</h1>
+            <h1 className={`${isLightTheme ? "text-black" : "text-white/80"}`}>
+              Type
+            </h1>
             <select
               onChange={handleTypeChange}
               className="block bg-gray-100 border border-gray-300 rounded-lg py-0.5 w-40 focus:outline-none"
@@ -141,7 +162,11 @@ const Home = () => {
               onClick={handleGenerate}
               className="transform transition duration-300 ease-in-out hover:scale-95"
             >
-              <h1 className="text-lg text-white bg-[#117562] px-2 py-1 rounded-2xl">
+              <h1
+                className={`${
+                  isLightTheme ? "text-white" : "text-white/70"
+                } text-lg bg-[#117562] px-2 py-1 rounded-2xl`}
+              >
                 Generate Quiz
               </h1>
             </button>
