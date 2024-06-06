@@ -10,9 +10,11 @@ import happy from "../assets/happy.png";
 const Quiz = ({ quizData, isLightTheme, setIsLightTheme }) => {
   const [score, setScore] = useState(0);
   const [showScore, setShowScore] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleSubmit = () => {
     setShowScore(true);
+    setIsSubmitted(true);
     window.scrollTo({ top: 0 });
   };
 
@@ -33,6 +35,7 @@ const Quiz = ({ quizData, isLightTheme, setIsLightTheme }) => {
                 isLightTheme={isLightTheme}
                 score={score}
                 setScore={setScore}
+                isSubmitted={isSubmitted}
               />
             ) : (
               <Boolean
@@ -41,6 +44,7 @@ const Quiz = ({ quizData, isLightTheme, setIsLightTheme }) => {
                 isLightTheme={isLightTheme}
                 score={score}
                 setScore={setScore}
+                isSubmitted={isSubmitted}
               />
             )
           )}

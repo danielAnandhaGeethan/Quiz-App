@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Difficulty from "./Difficulty";
+import Validate from "./Validate";
 
-const Boolean = ({ item, isLightTheme, score, setScore }) => {
+const Boolean = ({ item, isLightTheme, score, setScore, isSubmitted }) => {
   const [choices, setChoices] = useState(["True", "False"]);
   const [answer, setAnswer] = useState("");
   const [prevAns, setPrevAns] = useState("");
@@ -26,8 +27,6 @@ const Boolean = ({ item, isLightTheme, score, setScore }) => {
     }
 
     setPrevAns(prevAns !== event.target.value ? event.target.value : "");
-
-    console.log(score);
   };
 
   return (
@@ -57,6 +56,13 @@ const Boolean = ({ item, isLightTheme, score, setScore }) => {
           <label className={`${isLightTheme ? "" : "text-white/70"}`}>
             {choices[0]}
           </label>
+          <Validate
+            prevAns={prevAns}
+            choices={choices}
+            answer={answer}
+            isSubmitted={isSubmitted}
+            index={0}
+          />
         </div>
         <div className="flex items-center gap-1">
           <input
@@ -68,6 +74,13 @@ const Boolean = ({ item, isLightTheme, score, setScore }) => {
           <label className={`${isLightTheme ? "" : "text-white/70"}`}>
             {choices[1]}
           </label>
+          <Validate
+            prevAns={prevAns}
+            choices={choices}
+            answer={answer}
+            isSubmitted={isSubmitted}
+            index={1}
+          />
         </div>
       </div>
     </div>

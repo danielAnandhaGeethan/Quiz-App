@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Difficulty from "./Difficulty";
+import Validate from "./Validate";
 
-const Multiple = ({ item, isLightTheme, score, setScore }) => {
+const Multiple = ({ item, isLightTheme, score, setScore, isSubmitted }) => {
   const [choices, setChoices] = useState([]);
   const [answer, setAnswer] = useState("");
   const [prevAns, setPrevAns] = useState("");
@@ -41,8 +42,6 @@ const Multiple = ({ item, isLightTheme, score, setScore }) => {
     }
 
     setPrevAns(prevAns !== event.target.value ? event.target.value : "");
-
-    console.log(score);
   };
 
   return (
@@ -72,6 +71,13 @@ const Multiple = ({ item, isLightTheme, score, setScore }) => {
           <label className={`${isLightTheme ? "" : "text-white/70"}`}>
             {choices[0]}
           </label>
+          <Validate
+            prevAns={prevAns}
+            choices={choices}
+            answer={answer}
+            isSubmitted={isSubmitted}
+            index={0}
+          />
         </div>
         <div className="flex items-center gap-1">
           <input
@@ -83,6 +89,13 @@ const Multiple = ({ item, isLightTheme, score, setScore }) => {
           <label className={`${isLightTheme ? "" : "text-white/70"}`}>
             {choices[1]}
           </label>
+          <Validate
+            prevAns={prevAns}
+            choices={choices}
+            answer={answer}
+            isSubmitted={isSubmitted}
+            index={1}
+          />
         </div>
         <div className="flex items-center gap-1">
           <input
@@ -94,6 +107,13 @@ const Multiple = ({ item, isLightTheme, score, setScore }) => {
           <label className={`${isLightTheme ? "" : "text-white/70"}`}>
             {choices[2]}
           </label>
+          <Validate
+            prevAns={prevAns}
+            choices={choices}
+            answer={answer}
+            isSubmitted={isSubmitted}
+            index={2}
+          />
         </div>
         <div className="flex items-center gap-1">
           <input
@@ -105,6 +125,13 @@ const Multiple = ({ item, isLightTheme, score, setScore }) => {
           <label className={`${isLightTheme ? "" : "text-white/70"}`}>
             {choices[3]}
           </label>
+          <Validate
+            prevAns={prevAns}
+            choices={choices}
+            answer={answer}
+            isSubmitted={isSubmitted}
+            index={3}
+          />
         </div>
       </div>
     </div>
