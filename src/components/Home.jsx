@@ -62,7 +62,6 @@ const Home = ({ isLightTheme, setIsLightTheme }) => {
     await axios
       .get(url + one + two + three + four)
       .then((res) => {
-        console.log(res.data.results);
         localStorage.setItem("quizData", JSON.stringify(res.data.results));
         navigate("/quiz");
       })

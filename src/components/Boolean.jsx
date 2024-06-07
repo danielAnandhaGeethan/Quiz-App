@@ -3,7 +3,7 @@ import Difficulty from "./Difficulty";
 import Validate from "./Validate";
 
 const Boolean = ({ item, isLightTheme, score, setScore, isSubmitted }) => {
-  const [choices, setChoices] = useState(["True", "False"]);
+  const choices = ["True", "False"];
   const [answer, setAnswer] = useState("");
   const [prevAns, setPrevAns] = useState("");
 
