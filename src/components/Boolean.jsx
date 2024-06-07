@@ -52,6 +52,7 @@ const Boolean = ({ item, isLightTheme, score, setScore, isSubmitted }) => {
             value={choices[0]}
             onChange={handleRadioChange}
             checked={choices[0] === prevAns}
+            disabled={isSubmitted}
           />
           <label className={`${isLightTheme ? "" : "text-white/70"}`}>
             {choices[0]}
@@ -70,6 +71,7 @@ const Boolean = ({ item, isLightTheme, score, setScore, isSubmitted }) => {
             value={choices[1]}
             onChange={handleRadioChange}
             checked={choices[1] === prevAns}
+            disabled={isSubmitted}
           />
           <label className={`${isLightTheme ? "" : "text-white/70"}`}>
             {choices[1]}

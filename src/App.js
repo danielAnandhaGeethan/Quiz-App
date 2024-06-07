@@ -4,7 +4,6 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Quiz from "./components/Quiz";
 
 const App = () => {
-  const [quizData, setQuizData] = useState([]);
   const [isLightTheme, setIsLightTheme] = useState(true);
 
   return (
@@ -14,7 +13,6 @@ const App = () => {
           path="/"
           element={
             <Home
-              setQuizData={setQuizData}
               isLightTheme={isLightTheme}
               setIsLightTheme={setIsLightTheme}
             />
@@ -24,7 +22,6 @@ const App = () => {
           path="/quiz"
           element={
             <Quiz
-              quizData={quizData}
               isLightTheme={isLightTheme}
               setIsLightTheme={setIsLightTheme}
             />

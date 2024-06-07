@@ -67,6 +67,7 @@ const Multiple = ({ item, isLightTheme, score, setScore, isSubmitted }) => {
             value={choices[0]}
             onChange={handleRadioChange}
             checked={choices[0] === prevAns}
+            disabled={isSubmitted}
           />
           <label className={`${isLightTheme ? "" : "text-white/70"}`}>
             {choices[0]}
@@ -85,6 +86,7 @@ const Multiple = ({ item, isLightTheme, score, setScore, isSubmitted }) => {
             value={choices[1]}
             onChange={handleRadioChange}
             checked={choices[1] === prevAns}
+            disabled={isSubmitted}
           />
           <label className={`${isLightTheme ? "" : "text-white/70"}`}>
             {choices[1]}
@@ -103,6 +105,7 @@ const Multiple = ({ item, isLightTheme, score, setScore, isSubmitted }) => {
             value={choices[2]}
             onChange={handleRadioChange}
             checked={choices[2] === prevAns}
+            disabled={isSubmitted}
           />
           <label className={`${isLightTheme ? "" : "text-white/70"}`}>
             {choices[2]}
@@ -121,6 +124,7 @@ const Multiple = ({ item, isLightTheme, score, setScore, isSubmitted }) => {
             value={choices[3]}
             onChange={handleRadioChange}
             checked={choices[3] === prevAns}
+            disabled={isSubmitted}
           />
           <label className={`${isLightTheme ? "" : "text-white/70"}`}>
             {choices[3]}

@@ -6,7 +6,7 @@ import url from "../constants/url";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-const Home = ({ setQuizData, isLightTheme, setIsLightTheme }) => {
+const Home = ({ isLightTheme, setIsLightTheme }) => {
   const [num, setNum] = useState("");
   const [category, setCategory] = useState("");
   const [difficulty, setDifficulty] = useState("");
@@ -63,7 +63,7 @@ const Home = ({ setQuizData, isLightTheme, setIsLightTheme }) => {
       .get(url + one + two + three + four)
       .then((res) => {
         console.log(res.data.results);
-        setQuizData(res.data.results);
+        localStorage.setItem("quizData", JSON.stringify(res.data.results));
         navigate("/quiz");
       })
       .catch((err) => {
@@ -80,6 +80,7 @@ const Home = ({ setQuizData, isLightTheme, setIsLightTheme }) => {
         isLightTheme={isLightTheme}
         setIsLightTheme={setIsLightTheme}
         isHome={true}
+        handleRetry={null}
       />
       <div className="h-screen flex items-center justify-center">
         <div

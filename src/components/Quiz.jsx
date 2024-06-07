@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "./Navbar";
 import Multiple from "./Multiple";
 import Boolean from "./Boolean";
@@ -7,10 +7,21 @@ import sad from "../assets/sad.png";
 import smile from "../assets/smile.png";
 import happy from "../assets/happy.png";
 
-const Quiz = ({ quizData, isLightTheme, setIsLightTheme }) => {
+const Quiz = ({ isLightTheme, setIsLightTheme }) => {
   const [score, setScore] = useState(0);
   const [showScore, setShowScore] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [quizData, setQuizData] = useState([]);
+
+  useEffect(() => {
+    const temp = localStorage.getItem("quizData");
+    setQuizData(JSON.parse(temp));
+  }, []);
+
+  const handleRetry = () => {
+    setIsSubmitted(false);
+    setScore(0);
+  };
 
   const handleSubmit = () => {
     setShowScore(true);
@@ -24,6 +35,7 @@ const Quiz = ({ quizData, isLightTheme, setIsLightTheme }) => {
         isLightTheme={isLightTheme}
         setIsLightTheme={setIsLightTheme}
         isHome={false}
+        handleRetry={handleRetry}
       />
       <div className="py-28 lg:px-64 md:px-28 px-10">
         <div className="flex flex-col gap-5">
@@ -75,7 +87,7 @@ const Quiz = ({ quizData, isLightTheme, setIsLightTheme }) => {
             <img
               src={close}
               alt="Close"
-              className="h-5 cursor-pointer pr-4"
+              className="h-4 cursor-pointer pr-4"
               onClick={() => setShowScore(false)}
             />
           </div>
